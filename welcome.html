@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        /* 全屏视频样式 */
+        #welcomeVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* 对话框样式 */
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 10;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* 按钮样式 */
+        .dialog button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dialog button:hover {
+            background-color: #45a049;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 全屏视频 -->
+    <video id="welcomeVideo" autoplay muted>
+        <source src="img\videogame.mp4" type="video/mp4">
+    </video>
+
+    <!-- 欢迎对话框 -->
+    <div id="welcomeDialog" class="dialog">
+        <h1 id="welcomeText"></h1>
+        <button onclick="showNextDialog()">下一步</button>
+    </div>
+
+    <!-- 下一个对话框 -->
+    <div id="nextDialog" class="dialog">
+        <h1>小天使请安！</h1>
+        <h2>今天要来玩一款童年怀旧的恐龙跑酷小游戏！<h2>
+        <p>和超天酱一起开始游戏吧！</p>
+        <button onclick="redirectToNewPage()">Play Game Together!</button>
+    </div>
+
+    <script>
+        // 从 localStorage 中获取名字
+        var name = localStorage.getItem("questionInput");
+
+        // 获取视频和对话框元素
+        var video = document.getElementById("welcomeVideo");
+        var welcomeDialog = document.getElementById("welcomeDialog");
+        var nextDialog = document.getElementById("nextDialog");
+
+        // 监听视频播放结束事件
+        video.addEventListener("ended", function () {
+            // 显示欢迎对话框
+            welcomeDialog.style.display = "block";
+
+            // 更新欢迎信息
+            if (name) {
+                document.getElementById("welcomeText").innerText = "欢迎, " + name + "!";
+            } else {
+                document.getElementById("welcomeText").innerText = "欢迎, 访客!";
+            }
+        });
+
+        // 显示下一个对话框的函数
+        function showNextDialog() {
+            welcomeDialog.style.display = "none";
+            nextDialog.style.display = "block";
+        }
+
+        // 跳转到新网页的函数
+        function redirectToNewPage() {
+            window.location.href = "page2.html";
+        }
+    </script>
+</body>
+</html>

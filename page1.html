@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Needy Girl Overdose</title>
+      <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .qa-box {
+            position: relative;
+            width: 400px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .qa-box img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .qa-box input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .qa-box button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .qa-box button:hover {
+            background-color: #0056b3;
+        }
+
+        .qa-box .response {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="qa-box">
+        <!-- 图片 -->
+        <img src="img\photo2.png" alt="问答框图片">
+
+        <!-- 输入框 -->
+        <input type="text" id="questionInput" placeholder="Your name">
+
+        <!-- 提交按钮 -->
+        <img src="img\button1.png" alt="提交按钮" class="image-button" onclick="submitQuestion()">
+
+        <!-- 显示回答的区域 -->
+        <div id="response" class="response"></div>
+    </div>
+
+    <script>
+        function submitQuestion() {
+            // 获取用户输入的问题
+            const question = document.getElementById("questionInput").value;
+
+            // 检查是否输入了问题
+            if (question.trim() === "") {
+                alert(" Please write your name！");
+                return;
+            }
+
+            // 模拟回答（可以根据需要替换为真实的逻辑）
+            const response = `Welocome to this website,${question}!`;
+
+            // 显示回答
+            document.getElementById("response").innerText = response;
+            // 将名字存储到 localStorage 中
+            localStorage.setItem("questionInput", name);
+
+            // 跳转到新页面
+            window.location.href = "welcome.html";
+        }
+    </script>
+  </body>
+</html>

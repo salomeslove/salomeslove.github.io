@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-image: url("img/background2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#game-container {
+    width: 1500px;
+    height: 700px;
+    margin: 50px auto;
+    position: relative;
+    border: 2px solid #333;
+    overflow: hidden;
+}
+#dino {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    background-image: url("img/person1.png");
+    background-size: cover;
+    animation: dino-walk 0.5s infinite alternate;
+}
+
+/* 恐龙行走动画 */
+@keyframes dino-walk {
+from {
+transform: translateY(0);
+}
+to {
+transform: translateY(-5px);
+}
+}
+.obstacle {
+    width: 100px;
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+    background-image: url("img/obstacle.png");
+    background-size: cover;
+}
+#score {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-family: Arial;
+}
+/* 碰撞区域可视化 */
+#dino::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    right: 5px;
+    height: 10px;
+}
+.obstacle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 5px;
+    right: 5px;
+    height: 100%;
+}

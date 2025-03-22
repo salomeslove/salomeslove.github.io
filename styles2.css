@@ -1,7 +1,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-image: url("img/background2.jpg");
+    background-image: url("background2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -19,7 +19,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 20px;
-    background-image: url("img/person1.png");
+    background-image: url("person1.png");
     background-size: cover;
     animation: dino-walk 0.5s infinite alternate;
 }
@@ -38,7 +38,7 @@ transform: translateY(-5px);
     position: absolute;
     bottom: 0;
     right: -30px;
-    background-image: url("img/obstacle.png");
+    background-image: url("obstacle.png");
     background-size: cover;
 }
 #score {
